@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import Navbar from 'components/layout/NavBar';
+import './App.css';
+import Navbar from './components/layout/Navbar';
+import Signup from './components/routes/Signup';
+import Login from './components/routes/Login';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Login from 'components/routes/Login';
-import Signup from 'components/routes/Signup';
+import { PrivateRoute } from './components/routing-utils/PrivateRoute';
+import MyProfile from './components/routes/MyProfile';
+import { connect } from 'react-redux';
 
-class App extends Component {
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.isAuthenticated
+  };
+};
+
+class PApp extends Component {
   render() {
     return (
       <BrowserRouter>
         <div>
           <Navbar />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
+          <div className='container'>
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <PrivateRoute
+              isAuth={this.props.isAuthenticated}
+              path='/profile'
+              component={MyProfile}
+            />
+          </div>
           <ToastContainer />
         </div>
       </BrowserRouter>
@@ -20,4 +37,5 @@ class App extends Component {
   }
 }
 
+const App = connect(mapStateToProps, {})(PApp);
 export default App;

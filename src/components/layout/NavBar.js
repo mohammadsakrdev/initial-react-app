@@ -30,6 +30,7 @@ class Navbar extends Component {
           <ul className='navbar-nav mr-auto'>
             <NavBarLink to='/login' label='Login'></NavBarLink>
             <NavBarLink to='/signup' label='Signup'></NavBarLink>
+            <NavBarLink to='/profile' label='My Profile'></NavBarLink>
             <NavBarLink to='/users' label='Users'></NavBarLink>
             <NavBarLink to='/bikes' label='Bikes'></NavBarLink>
           </ul>
