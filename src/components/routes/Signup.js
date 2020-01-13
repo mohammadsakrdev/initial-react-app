@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { EnhancedSignupForm } from 'components/forms/signupForm/EnhancedSignupform';
 
 class Signup extends Component {
   render() {
-    return <p>Signup Routes</p>;
+    return (
+      <div>
+        <p>Signup Routes</p>
+        <EnhancedSignupForm />
+      </div>
+    );
   }
 }
 
