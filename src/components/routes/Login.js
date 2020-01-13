@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { EnhancedLoginForm } from 'components/forms/LoginForm/EnhancedLoginForm';
 
 class Login extends Component {
   render() {
-    return <p>Login Page</p>;
+    return <EnhancedLoginForm />;
   }
 }
 
